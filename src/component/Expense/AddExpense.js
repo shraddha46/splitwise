@@ -12,7 +12,7 @@ const AddExpenseDialogTitle = styled(DialogTitle)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  backgroundColor: theme.palette.secondary.logged,
+  backgroundColor: theme.palette.secondary.orange,
   color: 'white',
   padding: theme.spacing(2),
   margin: 0,
@@ -38,7 +38,7 @@ const CustomLabel = styled(InputLabel)(({ theme }) => ({
 
 const CustomChip = styled(Chip)(({ theme }) => ({
   color: theme.palette.secondary.logged,
-  border: `2px dashed ${theme.palette.secondary.logged}`,
+  border: `2px dashed ${theme.palette.secondary.orange}`,
   fontWeight: 500,
   margin: '0 4px 0 4px',
   padding: '8px 4px',
