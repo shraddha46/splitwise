@@ -3,6 +3,7 @@ import { Typography, Paper, Button, TextField, Card, CardContent, Container, Gri
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/system';
+import Footer from '../Footer/Footer';
 import Banner from '../../Images/banner1.png';
 import SplitwiseLogo from '../../Images/splitwise-main-logo.svg';
 import '../../Css/global.css';
@@ -164,6 +165,7 @@ const SignUp = (props) => {
                     </CardContent>
                 </Card>
             </Container>
+            <Footer />
         </SignUpWrap>
     )
 }

@@ -5,6 +5,7 @@ import { Typography, Paper, Button, TextField, Card, CardContent, Container } fr
 import { styled } from '@mui/system';
 import Banner from '../../Images/banner1.png';
 import '../../Css/global.css';
+import Footer from '../Footer/Footer';
 import {loginAction} from '../../action/auth';
 
 const LoginWrap = styled(Paper)(({ theme }) => ({
@@ -129,6 +130,7 @@ const Login = () => {
                     </CardContent>
                 </Card>
             </Container>
+            <Footer />
         </LoginWrap>
     )
 }

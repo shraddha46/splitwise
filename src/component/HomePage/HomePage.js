@@ -2,6 +2,7 @@ import React from 'react';
 import {Typography, Button, Paper, Box } from '@mui/material';
 import { styled } from '@mui/system';
 import Banner from '../../Images/banner1.png';
+import Footer from '../Footer/Footer';
 import HouseMatesImg from '../../Images/house-mates.svg';
 
 const BannerContainer = styled(Paper)(({ theme }) => ({
@@ -57,7 +58,7 @@ const HomePage = () => {
         </BannerText>
         <BannerImage />
       </BannerContainer>
-
+    <Footer />
     </>
   );
 };

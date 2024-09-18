@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, InputLabel, TextField, InputAdornment, Input, FormHelperText, FormControl, Typography, Chip } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { renderTimeViewClock } from '@mui/x-date-pickers/timeViewRenderers';
 import { LocalizationProvider, DateTimePicker } from '@mui/x-date-pickers';
@@ -71,6 +72,7 @@ const AddExpense = ({ open, closeExpenseModel }) => {
 
   const { userData } = useSelector(state => state.userState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setExpenseDetail({ ...expenseDetail, paidBy: userData.id });
@@ -117,6 +119,7 @@ const AddExpense = ({ open, closeExpenseModel }) => {
   const handleCloseSuccessModel = () => {
     setOpenSuccessModel(false);
     closeExpenseModel();
+    navigate('/all-expenses');
   };
 
   return (

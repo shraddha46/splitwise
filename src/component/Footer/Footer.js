@@ -1,14 +1,20 @@
 import React from 'react';
+import { Box, Toolbar } from '@mui/material';
 import FooterImg from '../../Images/footer-hill.svg';
 
 const Footer = () => {
     return (
-        <>
-            <img
+        <Box
+        component="footer"
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+      >
+        <Toolbar />
+        <img
                 src={FooterImg}
                 alt=""
                 style={{ width: '100%' }}
-            /></>
+            />
+      </Box>
     )
 }
 

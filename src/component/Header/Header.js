@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black' }}>
+      <AppBar position="fixed" sx={{ backgroundColor: 'white', color: 'black' }}>
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Logo src={splitwiseLogo} alt="SplitWise" />
           {
