@@ -87,7 +87,7 @@ const SignUp = (props) => {
     return (
         <SignUpWrap>
             <Container component="main" maxWidth="lg">
-            {signupError && <div className="text-left text-danger mb-2" style={{backgroundColor: "#cf4a4a", color: '#FFF'}}><span>{signupError?.message || "Internal Server Error"}</span></div>}
+            {signupError && <div className="text-left text-danger mb-2" style={{backgroundColor: "#cf4a4a", color: '#FFF', padding: '4px 32px',marginBottom: '8px', maxWidth: '700px', width: '100%'}}><span>{signupError?.message || "Internal Server Error"}</span></div>}
                 <Card sx={{ p: 4, width: '100%', maxWidth: '700px', mx: 'auto' }}>
                     <CardContent>
                         <Grid container spacing={4}>

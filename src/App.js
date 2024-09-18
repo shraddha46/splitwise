@@ -7,19 +7,23 @@ import Login from './component/Auth/Login';
 import SignUp from './component/Auth/SignUp';
 import DashBoard from './component/DashBoard/DashBoard';
 import CRoute from './PrivateRoute';
+import { UserProvider } from './UserContext';
 
 const App = () => {
+
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<CRoute element={<HomePage />} cPublic />} />
-          <Route exact path="/login" element={<CRoute element={<Login />} cPublic/>} />
-          <Route exact path="/signup" element={<CRoute element={<SignUp />} cPublic/>} />
-          <Route exact path="/dashboard" element={<CRoute element={<DashBoard />} />} />
-        </Routes>
-        <Footer />
+        <UserProvider>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<CRoute element={<HomePage />} cPublic />} />
+            <Route exact path="/login" element={<CRoute element={<Login />} cPublic />} />
+            <Route exact path="/signup" element={<CRoute element={<SignUp />} cPublic />} />
+            <Route exact path="/dashboard" element={<CRoute element={<DashBoard />} />} />
+          </Routes>
+          <Footer />
+        </UserProvider>
       </BrowserRouter>
     </>
   );

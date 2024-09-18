@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import { AppBar, Toolbar, Button, IconButton, Avatar } from '@mui/material';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 import splitwiseLogo from '../../Images/splitwise-logo.svg';
 import userLogo from '../../Images/user-logo.png';
+import { getToken } from '../../auth';
+import { useUser } from '../../UserContext';
 
 const Logo = styled('img')(({ theme }) => ({
   height: 48,
@@ -28,6 +30,16 @@ const SignUp = styled(SignInBtn)(({ theme }) => ({
 
 const Header = () => {
   const {data} = useSelector(state => state.loginState);
+  const { error } = useUser();
+
+  useEffect(() => {
+    
+    if(error){
+      if(error.message === "jwt expired"){
+        localStorage.removeItem('splitwiseToken')
+      }
+    }
+  },[]);
 
   return (
     <>
@@ -35,7 +47,7 @@ const Header = () => {
         <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
           <Logo src={splitwiseLogo} alt="SplitWise" />
           {
-            ((data && !data?.token) || !localStorage.getItem('splitwiseToken')) ?
+            ((data && !data?.token) || !getToken()) ?
               <div>
                 <SignInBtn>
                   <Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>Sign in</Link>

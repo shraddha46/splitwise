@@ -80,7 +80,7 @@ const Login = () => {
     return (
         <LoginWrap>
             <Container component="main" maxWidth="sm">
-            {loginError && <div className="text-left text-danger mb-2" style={{backgroundColor: "#cf4a4a", color: '#FFF'}}><span>{loginError}</span></div>}
+            {loginError && <div className="text-left text-danger mb-2" style={{backgroundColor: "#cf4a4a", color: '#FFF', padding: '4px 32px',marginBottom: '8px', maxWidth: '600px', width: '100%'}}><span>{loginError}</span></div>}
                 <Card sx={{ p: 4, width: '100%', maxWidth: '600px', mx: 'auto' }}>
                     <CardContent>
                         <Typography variant="h5" align="center" gutterBottom>

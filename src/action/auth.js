@@ -29,10 +29,10 @@ export const signupAction=(payload)=>{
                 if(error){
                     dispatch({
                         type:SIGNUP_ERROR,
-                        data:{error:error.response.statusText}
+                        data:{error:error.response.data}
                     })
                 }
-                return reject(error.response.statusText)
+                return reject(error.response.data)
             })
         })
     }
@@ -58,10 +58,10 @@ export const loginAction=(payload)=>{
                 if(error){
                     dispatch({
                         type:LOGIN_ERROR,
-                        data:{error:error.response.statusText}
+                        data:{error:error.response.data}
                     })
                 }
-                return reject(error.response.statusText)
+                return reject(error.response.data)
             })
         })
     }
@@ -72,6 +72,6 @@ export const logoutAction=()=>{
         dispatch({
             type:LOGOUT_SUCCESS
         });
-        localStorage.removeItem("token");
+        localStorage.removeItem("splitwisetoken");
     }
 }

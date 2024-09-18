@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import { Typography, Button, Paper, Box } from '@mui/material';
+import React, { useState } from 'react';
+import { Typography, Button, Paper, Box, CircularProgress } from '@mui/material';
 import { styled } from '@mui/system';
+import { useUser } from '../../UserContext';
 import AddExpense from '../Expense/AddExpense';
 
 const DashboardContainer = styled(Paper)(({ theme }) => ({
@@ -23,10 +24,24 @@ const CustomBtn = styled(Button)(({ theme }) => ({
 const DashBoard = () => {
 
     const [isOpenExpanseModel, setIsOpenExpanseModel] = useState(false);
+    const { loading } = useUser();
 
     const openExpenseModel = () => {
         setIsOpenExpanseModel(true);
     }
+
+    if (loading) return (
+        <Box
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '60vh'
+            }}
+        >
+            <CircularProgress />
+        </Box>
+    );
 
     return (
         <>
@@ -45,7 +60,7 @@ const DashBoard = () => {
                     </Typography>
                 </Box>
                 <Box style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingRight: '70px' }}>
-                    <CustomBtn variant="contained" onClick={openExpenseModel}>
+                    <CustomBtn variant="contained" onClick={openExpenseModel} >
                         Add an expense
                     </CustomBtn>
                     <CustomBtn variant="contained">
@@ -53,7 +68,7 @@ const DashBoard = () => {
                     </CustomBtn>
                 </Box>
             </DashboardContainer>
-            <AddExpense open={isOpenExpanseModel} />
+            <AddExpense open={isOpenExpanseModel} closeExpenseModel={() => setIsOpenExpanseModel(false)} />
         </>
     );
 };
