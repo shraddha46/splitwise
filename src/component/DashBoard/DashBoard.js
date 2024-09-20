@@ -41,7 +41,7 @@ const DashBoard = () => {
     );
 
     return (
-        <Box component="main" sx={{ width: '100%', pl: 4, pr: 8, pb: 8 }}>
+        <Box component="main" sx={{ width: '100%', pl: 4, pb: 8, height: '100%', display: 'flex', alignItems: 'center' }}>
             <DashboardContainer>
                 <Box sx={{ pb: 0 }}>
                     <Typography variant="h2" component="h2" style={{ fontWeight: 500 }}>
@@ -56,7 +56,7 @@ const DashBoard = () => {
                         "Add a group"<span style={{ color: '#000' }}> to simplify your group expenses!</span>
                     </Typography>
                 </Box>
-                <Box style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <Box style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingLeft: '40px' }}>
                     <CustomBtn variant="contained" onClick={openExpenseModel} >
                         Add an expense
                     </CustomBtn>

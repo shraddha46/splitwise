@@ -19,3 +19,7 @@ export function addExpenseAPI(payload) {
 export function addTempUsersAPI(payload) {
     return baseService.post('/user/addTempUsers', payload);
 };
+
+export function getAllExpenses() {
+    return baseService.get('/expense/all');
+};

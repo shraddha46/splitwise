@@ -10,7 +10,6 @@ import {
 import { useLocation, Link } from 'react-router-dom';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import BallotIcon from '@mui/icons-material/Ballot';
-import Header from '../Header/Header';
 
 const drawerWidth = 240;
 
@@ -22,18 +21,17 @@ const DrawerLayout = ({ children }) => {
         {
             title: 'Dashboard',
             path: '/dashboard',
-            icon:  <SpaceDashboardIcon />
+            icon: <SpaceDashboardIcon />
         },
         {
             title: 'All Expenses',
             path: '/all-expenses',
-            icon:  <BallotIcon />
+            icon: <BallotIcon />
         }
     ]
 
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh' }}>
-            <Header />
             <Box sx={{ display: 'flex', flex: 1, marginTop: '64px' }}>
                 <Drawer
                     sx={{
@@ -52,20 +50,23 @@ const DrawerLayout = ({ children }) => {
                     <Box sx={{ overflow: 'auto', pt: 6 }}>
                         <List>
                             {MenuList.map((item, index) => (
-                                <ListItem 
-                                    button 
+                                <ListItem
+                                    button
                                     key={index}
                                     component={Link}
                                     to={item.path}
                                     sx={{
                                         color: '#000',
-                                        backgroundColor: location.pathname === item.path ? '#dbd5d5' : '#FFF'
-                                }}
+                                        backgroundColor: location.pathname === item.path ? '#dbd5d5' : '#FFF',
+                                        '&:hover': {
+                                            backgroundColor: location.pathname === item.path ? '#dbd5d5' : '#e8e8e8'
+                                        }
+                                    }}
                                 >
                                     <ListItemIcon style={{ minWidth: '38px' }}>
                                         {item.icon}
-                </ListItemIcon>
-                                    <ListItemText primary={item.title}/>
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.title} />
                                 </ListItem>
                             ))}
                         </List>
@@ -73,7 +74,7 @@ const DrawerLayout = ({ children }) => {
                 </Drawer>
                 <Box
                     component="main"
-                    sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, display: 'flex', alignItems: 'center' }}
+                    sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
                 >
                     {children}
                 </Box>
